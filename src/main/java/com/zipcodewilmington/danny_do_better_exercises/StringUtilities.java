@@ -112,7 +112,11 @@ public class StringUtilities {
         if(firstSpace == -1) { // no second word
             return null;
         }
-        return spaceDelimitedString.substring(firstSpace+1);
+        int secondSpace = spaceDelimitedString.indexOf(' ', firstSpace+1);
+        if(secondSpace == -1) { // no second word
+            secondSpace = spaceDelimitedString.length();
+        }
+        return spaceDelimitedString.substring(firstSpace+1, secondSpace);
     }
 
     /**
